@@ -14,6 +14,19 @@
       let rect = document.getElementById("box");
       rect.style.left = "300px";
       rect.style.top = "300px";
+      // rect.style.backgroundColor = "black";
+      rect.style.color = "yellow ";
+      rect.addEventListener("click", onClick);
+      function onClick(e) {
+        console.log("click");
+        rect.style.width = "500px";
+        rect.style.backgroundColor = "red";
+      }
+      rect.addEventListener("mouseover", onOver);
+      function onOver(e) {
+        console.log("over");
+      }
+      rect.addEventListener("mouseout", onOut);
     </script>
   </body>
 </html>
