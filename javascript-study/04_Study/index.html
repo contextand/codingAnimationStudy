@@ -18,18 +18,20 @@
       box.addEventListener("click", onClick);
 
       function onClick(e) {
-        if (isSel == false) {
-          isSel = true;
-          cancelAnimationFrame(myAnimation);
-        } else {
-          isSel = false;
-          myAnimation = window.requestAnimationFrame(onAnimate);
-        }
+        console.log("click");
+        xPos = 600;
+        // if (isSel == false) {
+        //   isSel = true;
+        //   cancelAnimationFrame(myAnimation);
+        // } else {
+        //   isSel = false;
+        //   myAnimation = window.requestAnimationFrame(onAnimate);
+        // }
       }
 
       function onAnimate() {
-        xPos += 1;
-        box.style.left = xPos + "px";
+        // xPos += 1;
+        box.style.left = box.offsetLeft + (xPos - box.offsetLeft) * 0.1 + "px";
         myAnimation = window.requestAnimationFrame(onAnimate);
       }
     </script>
