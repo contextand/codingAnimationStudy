@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>06_Popup</title>
+  </head>
+  <div id="wrap">
+    <div id="popup">
+      <ul>
+        <li>About</li>
+        <li>Works</li>
+        <li>Photo</li>
+        <li>Contact</li>
+      </ul>
+    </div>
+  </div>
+  <div id="popupButton">
+    <div class="line" id="topLine"></div>
+    <div class="line" id="middleLine"></div>
+    <div class="line" id="bottomLine"></div>
+  </div>
+  <body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js"></script>
+    <script>
+      let popup = document.getElementById("popup");
+      let popupButton = document.getElementById("popupButton");
+      let topLine = document.getElementById("topLine");
+      let middleLine = document.getElementById("middleLine");
+      let bottomLine = document.getElementById("bottomLine");
+      popupButton.addEventListener("click", onClick);
+
+      function onClick(e) {
+        gsap.to(popup, { left: "0px", duration: 0.3 });
+        gsap.to(topLine, { backgroundColor: "#fff", duration: 0.3 });
+        gsap.to(middleLine, { backgroundColor: "#fff", duration: 0.3 });
+        gsap.to(bottomLine, { backgroundColor: "#fff", duration: 0.3 });
+        gsap.to(popupButton, { left: "220px", duration: 0.3 });
+      }
+    </script>
+  </body>
+</html>

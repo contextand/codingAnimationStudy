@@ -1,0 +1,71 @@
+html {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  background-color: #f1f0ec;
+  width: 100%;
+  height: 100%;
+}
+
+#wrap {
+  width: 100%;
+  height: 100%;
+}
+
+#popup {
+  position: absolute;
+  width: 300px;
+  height: 100%;
+  background-color: black;
+  left: -300px;
+}
+
+#popupButton {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  top: 20px;
+  left: 20px;
+  cursor: pointer;
+}
+
+.line {
+  position: absolute;
+  width: 28px;
+  height: 2px;
+  background-color: black;
+}
+
+#topLine {
+  position: absolute;
+  top: 20px;
+  left: 15px;
+}
+
+#middleLine {
+  position: absolute;
+  top: 29px;
+  left: 15px;
+}
+
+#bottomLine {
+  position: absolute;
+  top: 38px;
+  left: 15px;
+}
+
+ul {
+  position: absolute;
+  margin-top: 70px;
+  list-style: none;
+}
+
+li {
+  padding: 12px;
+  font-size: 18px;
+  color: white;
+}
