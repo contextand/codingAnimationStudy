@@ -30,14 +30,54 @@
       let topLine = document.getElementById("topLine");
       let middleLine = document.getElementById("middleLine");
       let bottomLine = document.getElementById("bottomLine");
+      let isSel = false;
       popupButton.addEventListener("click", onClick);
 
       function onClick(e) {
-        gsap.to(popup, { left: "0px", duration: 0.3 });
-        gsap.to(topLine, { backgroundColor: "#fff", duration: 0.3 });
-        gsap.to(middleLine, { backgroundColor: "#fff", duration: 0.3 });
-        gsap.to(bottomLine, { backgroundColor: "#fff", duration: 0.3 });
-        gsap.to(popupButton, { left: "220px", duration: 0.3 });
+        if (isSel === false) {
+          isSel = true;
+          gsap.to(popup, { left: "0px", duration: 0.3 });
+          gsap.to(topLine, {
+            backgroundColor: "#fff",
+            rotation: -45,
+            top: "30px",
+            duration: 0.3,
+          });
+          gsap.to(middleLine, {
+            backgroundColor: "#fff",
+            scaleX: 0,
+            transformOrigin: "left",
+            duration: 0.3,
+          });
+          gsap.to(bottomLine, {
+            backgroundColor: "#fff",
+            rotation: 45,
+            top: "30px",
+            duration: 0.3,
+          });
+          gsap.to(popupButton, { left: "220px", rotation: 180, duration: 0.3 });
+        } else if (isSel === true) {
+          isSel = false;
+          gsap.to(popup, { left: "-300px", duration: 0.3 });
+          gsap.to(topLine, {
+            backgroundColor: "#000",
+            rotation: 0,
+            top: "20px",
+            duration: 0.3,
+          });
+          gsap.to(middleLine, {
+            backgroundColor: "#000",
+            scaleX: 1,
+            duration: 0.3,
+          });
+          gsap.to(bottomLine, {
+            backgroundColor: "#000",
+            rotation: 0,
+            top: "38px",
+            duration: 0.3,
+          });
+          gsap.to(popupButton, { left: "20px", rotation: 0, duration: 0.3 });
+        }
       }
     </script>
   </body>
