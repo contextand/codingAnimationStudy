@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.1/dist/gsap.min.js"></script>
     <script>
       window.addEventListener("click", onClick);
 
@@ -17,16 +18,24 @@
         let r = Math.floor(Math.random() * 256);
         let g = Math.floor(Math.random() * 256);
         let b = Math.floor(Math.random() * 256);
+        let opa = Math.random() * 0.9 + 0.1;
 
         circle.style.position = "absolute";
+        circle.style.opacity = opa;
         circle.style.width = radius + "px";
         circle.style.height = radius + "px";
         circle.style.borderRadius = "50%";
         circle.style.backgroundColor = "rgb(" + r + "," + g + "," + b + ")";
         circle.style.left = e.pageX - radius * 0.5 + "px";
         circle.style.top = e.pageY - radius * 0.5 + "px";
+        circle.style.transform = "scale(0,0)";
+        gsap.to(circle, {
+          scale: 1,
+          ease: "elastic.out(1, 0.3)",
+          duration: 1.5,
+        });
+
         document.body.appendChild(circle);
-        console.log(e.pageX);
       }
     </script>
   </body>
