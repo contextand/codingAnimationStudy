@@ -13,13 +13,18 @@
 
       function onClick(e) {
         let circle = document.createElement("div");
+        let radius = Math.floor(Math.random() * 150 + 50);
+        let r = Math.floor(Math.random() * 256);
+        let g = Math.floor(Math.random() * 256);
+        let b = Math.floor(Math.random() * 256);
+
         circle.style.position = "absolute";
-        circle.style.width = "100px";
-        circle.style.height = "100px";
+        circle.style.width = radius + "px";
+        circle.style.height = radius + "px";
         circle.style.borderRadius = "50%";
-        circle.style.backgroundColor = "black";
-        circle.style.left = e.pageX - 50 + "px";
-        circle.style.top = e.pageY - 50 + "px";
+        circle.style.backgroundColor = "rgb(" + r + "," + g + "," + b + ")";
+        circle.style.left = e.pageX - radius * 0.5 + "px";
+        circle.style.top = e.pageY - radius * 0.5 + "px";
         document.body.appendChild(circle);
         console.log(e.pageX);
       }
