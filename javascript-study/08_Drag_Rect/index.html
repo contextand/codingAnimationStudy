@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <div id="box"></div>
+  <body>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.1/dist/gsap.min.js"></script>
+    <script>
+      let box = document.getElementById("box");
+      let stageW = window.innerWidth;
+      let stageH = window.innerHeight;
+      let isDrag = false;
+      let preX = 0;
+      let preY = 0;
+      let vx = 0;
+      let vy = 0;
+      let xPos = 0;
+      let yPos = 0;
+
+      box.style.left = stageW / 2 - 100 + "px";
+      box.style.top = stageH / 2 - 125 + "px";
+      xPos = stageW / 2 - 100;
+      yPos = stageH / 2 - 125;
+
+      window.addEventListener("mousemove", onMouse);
+      box.addEventListener("mousedown", onDown);
+      box.addEventListener("mouseup", onUp);
+
+      function onUp(e) {
+        // 마우스 뗏을 때 드래그 비활성화
+        isDrag = false;
+        gsap.to(box, {
+          left: xPos + "px",
+          top: yPos + "px",
+          scale: 1,
+          backgroundColor: "#ffffff",
+          ease: "back.out(1.7)",
+          duration: 0.4,
+        });
+      }
+
+      function onDown(e) {
+        // 마우스 누를 때 드래그 활성화
+        isDrag = true;
+        preX = e.pageX;
+        preY = e.pageY;
+        gsap.to(box, { scale: 1.2, backgroundColor: "#1f4687", duration: 0.3 });
+      }
+
+      function onMouse(e) {
+        if (isDrag == true) {
+          vx = e.pageX - preX;
+          vy = e.pageY - preY;
+          box.style.left = box.offsetLeft + vx + "px";
+          box.style.top = box.offsetTop + vy + "px";
+          // box.style.left = e.pageX - 100 + "px";
+          // box.style.top = e.pageY - 125 + "px";
+          preX = e.pageX;
+          preY = e.pageY;
+        }
+      }
+    </script>
+  </body>
+</html>
